@@ -1,22 +1,29 @@
 Objetivos:
 
-
 #################### CONTROLE DE ESTOQUE ####################
+
 1. Criar a Janela Principal, a qual deve conter as opções de adicionar e remover produtos, além de mostrar todos os produtos do banco de dados em uma tabela;
 2. A tabela deve ter a opção de ordenar cada coluna;
 3. Os produtos devem poder ser selecionados com o cursor e excluidos;
 4. O botão direito deve ter opções (excluir, atualizar, editar...);
-5. Opção de pesquisar produtos no estoque
+5. Opção de pesquisar produtos no estoque;
+6. Adicionar função de clicar em cima do produto e "puxar" os valores para o cabeçalho; e
+7. Criar um botão para adicionar produtos que, ao ser clicado, abre uma pequena janela para adicionar o produto e suas informações.
 
 #################### INTERFACE DE VENDAS ####################
+
 1. Criar a Janela de Vendas;
 2. Opção de leitura de códigos de barras, a qual adiciona o produto como +1 item no "carrinho de compras";
-3. Consulta de produtos no estoque por meio de pesquisa ou código de barras;
-4. Opção de pesquisar produtos no estoque;
+3. Consulta de produtos no estoque por meio de pesquisa ou código de barras; e
+4. Opção de pesquisar produtos no estoque.
 
 #################### JANELA DE ADMINITRAÇÃO DO NEGÓCIO ####################
+
 1. Criar a Janela de Administração;
 2. Monitoramento de produtos, com possibilidade de configuração de mínimos de itens;
 3. Controle de fornecedores;
-4. Balança Financeira;
-5. Gráficos com categorias de maiores vendas;
+4. Balança Financeira; e
+5. Gráficos com categorias de maiores vendas.
+
+Oportunidades de Melhoria:
+Inserção de Imagens dos produtos
