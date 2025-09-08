@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
+from adicionar_produto import adicionar_produto
 
 def janela_estoque():
     root = tk.Tk() # Criação da janela principal
@@ -10,36 +11,52 @@ def janela_estoque():
     #==============================================================Frames=================================================
     # Frame para a barra de menu
 
-
+    # Estilos
+    style = ttk.Style(root)
+    style.theme_use('clam')  # Tema 'clam' é mais moderno e limpo de acordo com a documentação do ttk
+    style.configure('TButton', font=('Arial', 12), padding=20)
+    style.configure('TLabel', font=('Arial', 12), padding=2)
+    style.configure('TEntry', font=('Arial', 12), padding=2)
+    style.configure('Treeview', font=('Arial', 12), rowheight=25)
 
     # Frame para ações (botões, entradas e saídas)
     frame_acoes = ttk.Frame(root)
     frame_acoes.pack(side=tk.TOP, fill=tk.X, padx=10, pady=10)
+    frame_acoes.grid_columnconfigure(0, weight=1)
+    frame_acoes.grid_columnconfigure(1, weight=3)
+    frame_acoes.grid_columnconfigure(2, weight=1)
 
     label_produto = ttk.Label(frame_acoes, text="ID do Produto:")
-    label_produto.grid(row=0, column=0, padx=5, pady=5, sticky=tk.W)
+    label_produto.grid(row=0, column=0, padx=5, pady=5, sticky='ew')
     entry_produto = ttk.Entry(frame_acoes)
-    entry_produto.grid(row=0, column=1, padx=5, pady=5, sticky=tk.W)
+    entry_produto.grid(row=0, column=1, padx=5, pady=5, sticky='w')
 
     label_descricao = ttk.Label(frame_acoes, text="Nome do Produto:")
-    label_descricao.grid(row=1, column=0, padx=5, pady=5, sticky=tk.W)
+    label_descricao.grid(row=1, column=0, padx=5, pady=5, sticky='ew')
     entry_descricao = ttk.Entry(frame_acoes)
-    entry_descricao.grid(row=1, column=1, padx=5, pady=5, sticky=tk.W)
+    entry_descricao.grid(row=1, column=1, padx=5, pady=5, sticky='w')
 
     label_quantidade = ttk.Label(frame_acoes, text="Quantidade:")
-    label_quantidade.grid(row=2, column=0, padx=5, pady=5, sticky=tk.W)
+    label_quantidade.grid(row=2, column=0, padx=5, pady=5, sticky='ew')
     entry_quantidade = ttk.Entry(frame_acoes)
-    entry_quantidade.grid(row=2, column=1, padx=5, pady=5, sticky=tk.W)
+    entry_quantidade.grid(row=2, column=1, padx=5, pady=5, sticky='w')
 
     label_preco = ttk.Label(frame_acoes, text="Preço (R$):")
-    label_preco.grid(row=3, column=0, padx=5, pady=5, sticky=tk.W)
+    label_preco.grid(row=3, column=0, padx=5, pady=5, sticky='ew')
     entry_preco = ttk.Entry(frame_acoes)
-    entry_preco.grid(row=3, column=1, padx=5, pady=5, sticky=tk.W)
+    entry_preco.grid(row=3, column=1, padx=5, pady=5, sticky='w')
 
     label_fornecedor = ttk.Label(frame_acoes, text="Fornecedor:")
-    label_fornecedor.grid(row=4, column=0, padx=5, pady=5, sticky=tk.W)
+    label_fornecedor.grid(row=4, column=0, padx=5, pady=5, sticky='ew')
     entry_fornecedor = ttk.Entry(frame_acoes)
-    entry_fornecedor.grid(row=4, column=1, padx=5, pady=5, sticky=tk.W)
+    entry_fornecedor.grid(row=4, column=1, padx=5, pady=5, sticky='w')
+
+    # Botões
+    add_button = ttk.Button(frame_acoes, text="Adicionar", command=adicionar_produto)
+    add_button.grid(row=0, column=2, rowspan=2, padx=8, pady=10, sticky='nsew')
+
+    remove_button = ttk.Button(frame_acoes, text="Remover")
+    remove_button.grid(row=3, column=2, rowspan=2, padx=8, pady=10, sticky='nsew')
 
     ################################Criação da tabela###############################
 
