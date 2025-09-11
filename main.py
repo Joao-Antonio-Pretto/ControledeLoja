@@ -6,7 +6,10 @@ from adicionar_produto import adicionar_produto
 def janela_estoque():
     root = tk.Tk() # Criação da janela principal
     root.title("Estoque")
-    root.geometry("700x900")
+    root.geometry("600x800")
+    min_width = 600 # Define a largura mínima da janela
+    min_height = 800 # Define a altura mínima da janela
+    root.minsize(min_width, min_height)  # Define o tamanho mínimo da janela
 
     #==============================================================Frames=================================================
     # Frame para a barra de menu
@@ -15,6 +18,7 @@ def janela_estoque():
     style = ttk.Style(root)
     style.theme_use('clam')  # Tema 'clam' é mais moderno e limpo de acordo com a documentação do ttk
     style.configure('TButton', font=('Arial', 12), padding=20)
+    style.configure("Small.TButton", background='lightcoral', foreground='blue', font=('Arial', 10), padding=5)
     style.configure('TLabel', font=('Arial', 12), padding=2)
     style.configure('TEntry', font=('Arial', 12), padding=2)
     style.configure('Treeview', font=('Arial', 12), rowheight=25)
@@ -75,11 +79,11 @@ def janela_estoque():
     tree.heading("preco", text="Preço (R$)")
     tree.heading("fornecedor", text="Fornecedor")
     # Largura das colunas
-    tree.column("id", width=50)# .column associa o identificador da coluna com a largura que será exibida
+    tree.column("id", width=30)# .column associa o identificador da coluna com a largura que será exibida
     tree.column("produto", width=250)
-    tree.column("quantidade", width=100)
-    tree.column("preco", width=100)
-    tree.column("fornecedor", width=150)
+    tree.column("quantidade", width=80)
+    tree.column("preco", width=80)
+    tree.column("fornecedor", width=130)
 
     tree.pack(fill=tk.BOTH, expand=True)# aqui adiciona a tabela na janela
 
@@ -103,7 +107,9 @@ def janela_estoque():
     # Frame para status ou outras informações
     frame_status = ttk.Frame(root)
     frame_status.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=5)
-    ttk.Label(frame_status, text="Status: Pronto").pack(side=tk.LEFT, padx=5) #apenas para posicionar
+    frame_status.grid_columnconfigure(0, weight=1)
+    sair_button = ttk.Button(frame_status, text="Sair", style="Small.TButton", command=root.destroy)
+    sair_button.grid(row=0, column=0, padx=5, pady=5, sticky='e')
 
     root.mainloop()
 
